@@ -1,0 +1,2 @@
+# cat=page; type=string; label=Garbage Collector Number of hours since last indexing
+garbageCollectionCleanupDelay = 48

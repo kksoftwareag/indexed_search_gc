@@ -1,0 +1,35 @@
+{
+  "name": "kksoftwareag/indexed_search_gc",
+  "license": "MIT",
+  "type": "typo3-cms-extension",
+  "version": "1.0.0",
+  "homepage": "https://kk-software.de",
+  "description": "Provides a configurable Scheduler Task to Cleanup old IndexedSearch Entries",
+  "keywords": [
+    "TYPO3",
+    "extension",
+    "indexed_search",
+    "garbage collection",
+    "cleanup"
+  ],
+  "authors": [
+    {
+      "name": "Bernhard Sirlinger",
+      "role": "Developer",
+      "homepage": "https://www.kk-software.de"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": "^8.7.13",
+    "typo3/cms-indexed-search": "^8.7.13",
+    "typo3/cms-scheduler": "^8.7.13"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "KKSoftware\\IndexedSearchGC\\": "Classes"
+    }
+  }
+}
