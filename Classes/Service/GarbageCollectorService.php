@@ -41,7 +41,7 @@ class GarbageCollectorService
     /**
      *
      */
-    protected const TABLE_INDEX = 'index_phash';
+    const TABLE_INDEX = 'index_phash';
 
     /**
      * GarbageCollectorService constructor.
