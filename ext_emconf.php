@@ -11,12 +11,12 @@ $EM_CONF['indexed_search_gc'] = [
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '1.0.0',
+    'version' => '2.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-8.7.99',
-            'indexed_search' => '8.7.0-8.7.99',
-            'scheduler' => '8.7.0-8.7.99'
+            'typo3' => '10.4.0-11.5.99',
+            'indexed_search' => '10.4.0-11.5.99',
+            'scheduler' => '10.4.0-11.5.99'
         ],
         'conflicts' => [],
         'suggests' => [],
