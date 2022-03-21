@@ -20,21 +20,42 @@
     }
   ],
   "require": {
+    "php": "^7.2 || ^7.3 || ^7.4",
     "typo3/cms-core": "^9.5 || ^10.4",
     "typo3/cms-indexed-search": "^9.5 || ^10.4",
-    "typo3/cms-scheduler": "^9.5 || ^10.4"
+    "typo3/cms-scheduler": "^9.5 || ^10.4",
+    "typo3/minimal": "^10.4"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-master"
+    "friendsofphp/php-cs-fixer": "^3.2",
+    "phpstan/phpstan": "^1.4.5",
+    "phpunit/phpunit": "^7.5.6 || ^8.5.25",
+    "typo3/testing-framework": "^4.15.5 || ^5.0.16"
+  },
+  "config": {
+    "sort-packages": true,
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin",
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true
+    }
   },
   "autoload": {
     "psr-4": {
       "KKSoftware\\IndexedSearchGC\\": "Classes"
     }
   },
+  "scripts": {
+    "post-autoload-dump": [
+      "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+    ]
+  },
   "extra": {
     "typo3/cms": {
-      "extension-key": "indexed_search_gc"
+      "extension-key": "indexed_search_gc",
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
     }
   }
 }

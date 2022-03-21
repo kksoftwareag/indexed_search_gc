@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property KKSoftware\\\\IndexedSearchGC\\\\Service\\\\GarbageCollectorService\\:\\:\\$statements type has no value type specified in iterable type Doctrine\\\\DBAL\\\\Driver\\\\Statement\\.$#"
+			count: 1
+			path: ../../Classes/Service/GarbageCollectorService.php
+
