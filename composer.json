@@ -34,7 +34,7 @@
   },
   "extra": {
     "typo3/cms": {
-      "extension-key": "indexex_search_gc"
+      "extension-key": "indexed_search_gc"
     }
   }
 }
