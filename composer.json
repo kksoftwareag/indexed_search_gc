@@ -20,9 +20,9 @@
     }
   ],
   "require": {
-    "typo3/cms-core": "^8.7.13",
-    "typo3/cms-indexed-search": "^8.7.13",
-    "typo3/cms-scheduler": "^8.7.13"
+    "typo3/cms-core": "^9.5 || ^10.4",
+    "typo3/cms-indexed-search": "^9.5 || ^10.4",
+    "typo3/cms-scheduler": "^9.5 || ^10.4"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
@@ -30,6 +30,11 @@
   "autoload": {
     "psr-4": {
       "KKSoftware\\IndexedSearchGC\\": "Classes"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "indexed_search_gc"
     }
   }
 }

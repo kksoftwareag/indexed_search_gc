@@ -3,11 +3,11 @@
 namespace KKSoftware\IndexedSearchGC\Task;
 
 use KKSoftware\IndexedSearchGC\Service\GarbageCollectorService;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
 
 /**
@@ -37,15 +37,13 @@ class GarbageCollector extends AbstractTask
         /** @var ObjectManager $om */
         $om = GeneralUtility::makeInstance(ObjectManager::class);
 
-        /** @var ConfigurationUtility $configurationUtility */
-        $configurationUtility = $om->get(ConfigurationUtility::class);
-
-        $result = $configurationUtility->getCurrentConfiguration('indexed_search_gc');
+        /** @var ExtensionConfiguration $extensionConfiguration */
+        $extensionConfiguration = $om->get(ExtensionConfiguration::class);
+        $result = $extensionConfiguration->get('indexed_search_gc');
 
         $this->logger->debug('Configuration Data', $result);
 
-
-        $service = new GarbageCollectorService($result['garbageCollectionCleanupDelay']['value']);
+        $service = new GarbageCollectorService($result['garbageCollectionCleanupDelay']);
 
         $service->collect();
 
