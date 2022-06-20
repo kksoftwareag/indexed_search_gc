@@ -2,7 +2,6 @@
 
 namespace KKSoftware\IndexedSearchGC\Service;
 
-
 use Doctrine\DBAL\Driver\Statement;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -10,10 +9,6 @@ use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-/**
- * Class GarbageCollectorService
- * @package KKSoftware\IndexedSearchGC\Service
- */
 class GarbageCollectorService
 {
     /**
@@ -34,18 +29,16 @@ class GarbageCollectorService
     protected $connection;
 
     /**
-     * @var Statement[] $statements
+     * @var array<int, Statement>
      */
     protected $statements = [];
 
-    /**
-     *
-     */
     protected const TABLE_INDEX = 'index_phash';
 
     /**
      * GarbageCollectorService constructor.
-     * @param $cleanupDelay
+     *
+     * @param  int  $cleanupDelay
      */
     public function __construct(int $cleanupDelay = 48)
     {
@@ -53,10 +46,7 @@ class GarbageCollectorService
         $this->logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
     }
 
-    /**
-     *
-     */
-    public function collect()
+    public function collect(): void
     {
         $this->logger->debug('Garbage Collection Started');
 
@@ -85,10 +75,7 @@ class GarbageCollectorService
         }
     }
 
-    /**
-     *
-     */
-    protected function prepareStatements()
+    protected function prepareStatements(): void
     {
         $this->statements[] = $this->connection->prepare('DELETE FROM index_fulltext WHERE phash = ?');
         $this->statements[] = $this->connection->prepare('DELETE FROM index_section WHERE phash = ?');
@@ -100,7 +87,7 @@ class GarbageCollectorService
     /**
      * @param int $phash
      */
-    protected function deleteData(int $phash)
+    protected function deleteData(int $phash): void
     {
         $counter = 0;
 

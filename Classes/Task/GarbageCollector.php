@@ -10,10 +10,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
 
-/**
- * Class GarbageCollector
- * @package KKSoftware\IndexedSearchGC\Task
- */
 class GarbageCollector extends AbstractTask
 {
     /**
