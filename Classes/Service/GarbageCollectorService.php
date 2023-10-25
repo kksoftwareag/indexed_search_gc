@@ -74,9 +74,9 @@ class GarbageCollectorService
 
         $this->logger->debug('Get Entries', [$statement->getSQL()]);
 
-        $result = $statement->execute();
+        $result = $statement->executeQuery();
 
-        $rows = $result->fetchAll(\PDO::FETCH_ASSOC);
+        $rows = $result->fetchAllAssociative();
 
         $this->prepareStatements();
 
@@ -108,9 +108,9 @@ class GarbageCollectorService
 
         foreach ($this->statements as $statement) {
             $statement->bindValue(1, $phash);
-            $statement->execute();
+            $result = $statement->execute();
 
-            $counter += $statement->rowCount();
+            $counter += $result->rowCount();
         }
 
         $this->logger->info('Deleted Rows', [$counter]);
