@@ -2,7 +2,7 @@
   "name": "kksoftwareag/indexed_search_gc",
   "license": "MIT",
   "type": "typo3-cms-extension",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "homepage": "https://kk-software.de",
   "description": "Provides a configurable Scheduler Task to Cleanup old IndexedSearch Entries",
   "keywords": [
